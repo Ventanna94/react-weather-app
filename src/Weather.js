@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
+import DisplayDate from "./DisplayDate";
 import "./Weather.css";
 import "./index.css";
 
@@ -10,8 +11,8 @@ export default function Weather(props) {
         loaded: true,
         temperature: Math.round(response.data.main.temp),
         city: response.data.name,
-        date: "09/01",
-        time: "19:33",
+        date: new Date(response.data.dt * 1000),
+        time: new Date(response.data.dt * 1000),
         description: response.data.weather[0].description,
         iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
         wind: Math.round(response.data.wind.speed),
@@ -33,7 +34,7 @@ export default function Weather(props) {
         <div className="row">
          <div className="col-6">
          <h1 className="city"> {weatherData.city} </h1>
-         <h2 className="date"> {weatherData.date} | {weatherData.time} </h2>
+         <h2 className="date"> <DisplayDate date={weatherData.date} /> </h2>
          <div className="clearfix"> <img src={weatherData.iconUrl} className="float-left" /> </div>
          <h4 className="temperature"> {weatherData.temperature}° C | <span> Feels like {weatherData.feelsLike}° C </span> </h4>
          <h5 className="text-capitalize"> {weatherData.description} </h5>
