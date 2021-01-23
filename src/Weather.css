@@ -46,8 +46,9 @@
   margin: 20px 0px 0px 0px;
 }
 
-.Weather img {
+.Weather canvas {
   margin-top: 15px;
+  margin-bottom: 5px;
 }
 
 h4 {

@@ -1,5 +1,6 @@
 import React from "react";
 import DisplayDate from "./DisplayDate";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherData(props) {
     return (
@@ -7,7 +8,11 @@ export default function WeatherData(props) {
          <div className="col-6">
          <h1 className="city"> {props.data.city} </h1>
          <h2 className="date"> <DisplayDate date={props.data.date} /> </h2>
-         <div className="clearfix"> <img src={props.data.iconUrl} className="float-left" /> </div>
+         <div className="clearfix">
+         <div className="float-left">     
+         <WeatherIcon code={props.data.icon}/>
+         </div>
+         </div>
          <h4 className="temperature"> {props.data.temperature}° C | <span> Feels like {props.data.feelsLike}° C </span> </h4>
          <h5 className="text-capitalize"> {props.data.description} </h5>
          </div>
