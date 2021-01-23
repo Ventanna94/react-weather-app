@@ -13,14 +13,19 @@
 }
 
 .Weather .btn-info {
-  margin: 5px;
+  margin: 8px;
+}
+
+.fa-brain {
+  font-size: 15px;
+  color: #ffff;
 }
 
 .Weather .btn-outline-info {
   border: 2px solid #07689f;
   background-color: #07689f;
   border-radius: 10px;
-  margin: 5px;
+  margin-left: 1px;
   padding: 5px;
 }
 

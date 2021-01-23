@@ -2,7 +2,7 @@ import react from "react";
 
 export default function DisplayDate(props) {
     let day = props.date.getDate();
-    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let month = months[props.date.getMonth()];
     let hours = props.date.getHours();
     if (hours < 10) {

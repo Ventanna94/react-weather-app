@@ -1,5 +1,16 @@
 .App footer {
   text-align: center;
   margin: 20px;
-  color: #07689f;
+  color: white;
+  font-weight: bold;
+}
+
+.App {
+  font-family: "Bellota", cursive;
+}
+
+.App {
+  background-image: url("img/pinetrees.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
