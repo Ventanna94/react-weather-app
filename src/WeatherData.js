@@ -2,6 +2,7 @@ import React from "react";
 import DisplayDate from "./DisplayDate";
 import WeatherIcon from "./WeatherIcon";
 
+
 export default function WeatherData(props) {
     return (
         <div className="row">
@@ -19,7 +20,7 @@ export default function WeatherData(props) {
     
          <div className="col-6">
          <h4 className="humidity"> <i className="fas fa-tint"></i> Humidity: {props.data.humidity}% </h4>
-         <h4 className="wind"> <i className="fas fa-wind"></i> Wind: {props.data.wind} km/h </h4>   
+         <h4 className="wind"> <i className="fas fa-wind"></i> Wind: {props.data.wind} km/h </h4>
          </div>
         </div>);
 }
