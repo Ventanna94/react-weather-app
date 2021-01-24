@@ -22,7 +22,7 @@ export default function Weather(props) {
     });    
     }
 
-    function search() {
+    function searchWeather() {
         const apiKey= "2dce67821f0e7f4647f02add3197ae70";
         let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
         axios.get(apiUrl).then(handleResponse);
@@ -30,9 +30,27 @@ export default function Weather(props) {
     
     function handleSubmit(event) {
         event.preventDefault();
-        search();
+        searchWeather();
     }
 
+    function findLocalWeather(position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    const apiKey = "2dce67821f0e7f4647f02add3197ae70";
+    let geoLocationUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    axios.get(geoLocationUrl).then(handleResponse);
+  }
+
+  function getCurrentPosition() {
+    navigator.geolocation.getCurrentPosition(findLocalWeather);
+  }
+
+  function handleLocationSubmit(event) {
+    event.preventDefault();
+    getCurrentPosition();
+  }
+
+  
     function searchCity(event) {
         setCity(event.target.value);
     }
@@ -43,9 +61,8 @@ export default function Weather(props) {
         <form className="searchForm" onSubmit={handleSubmit}>
         <input type="search" placeholder="Take me to..." className="form-control"autoFocus="on" onChange={searchCity} />
         <input type="submit" value="Search" className="btn btn-primary" />
-        <button type="submit" class="btn btn-info" id="current"> <i className="fas fa-map-marker-alt"></i> Current </button>
-        <button type="submit" className="btn btn-outline-info" onClick="window.open('https://www.poetryfoundation.org/poems/poem-of-the-day','_blank'); return false;"> <i
-        className="fas fa-brain"></i> Think </button>
+        <button type="submit" class="btn btn-info" onClick={handleLocationSubmit}> <i className="fas fa-map-marker-alt"></i> Current </button>
+        
 
         </form>
 
@@ -54,7 +71,7 @@ export default function Weather(props) {
         </div>
     );
     } else {
-        search();
+        searchWeather();
         return ("Loading...");
     }
 }

@@ -1,8 +1,16 @@
-.WeatherForecast {
+.forecast {
   text-align: center;
-  margin: 20px 0;
+  margin: 20px 0px 10px 0px;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+  box-shadow: 4px 4px 4px grey;
+  padding: 15px;
 }
 
 .WeatherForecast canvas {
   display: block;
+  color: white;
 }

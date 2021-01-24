@@ -15,10 +15,10 @@ export default function WeatherForecastCards(props) {
     }
 
     return (
-        <div className="col">  
-        {hours()}
+        <div className="col text-center">  
+        <p className="hours"> {hours()} </p>
         <WeatherIcon code={props.data.weather[0].icon} />    
-        {temperature()}
+        <p className="temp"> {temperature()} </p>
         </div>
         );
 }
